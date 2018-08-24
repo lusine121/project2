@@ -1,0 +1,541 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Aug 16, 2018 at 03:40 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.0.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `news_app`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `title`) VALUES
+(1, 'Art'),
+(2, 'Sport'),
+(3, 'Government'),
+(4, 'Environmental\r\n'),
+(5, 'Politics'),
+(6, 'Weather'),
+(7, 'Universe');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `countries`
+--
+
+CREATE TABLE `countries` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `countries`
+--
+
+INSERT INTO `countries` (`id`, `title`) VALUES
+(1, 'Afghanistan'),
+(2, 'Albania'),
+(3, 'Algeria'),
+(4, 'American Samoa'),
+(5, 'Andorra'),
+(6, 'Angola'),
+(7, 'Anguilla'),
+(8, 'Antarctica'),
+(9, 'Antigua and Barbuda'),
+(10, 'Argentina'),
+(11, 'Armenia'),
+(12, 'Aruba'),
+(13, 'Australia'),
+(14, 'Austria'),
+(15, 'Azerbaijan'),
+(16, 'Bahamas'),
+(17, 'Bahrain'),
+(18, 'Bangladesh'),
+(19, 'Barbados'),
+(20, 'Belarus'),
+(21, 'Belgium'),
+(22, 'Belize'),
+(23, 'Benin'),
+(24, 'Bermuda'),
+(25, 'Bhutan'),
+(26, 'Bolivia'),
+(27, 'Bosnia and Herzegowina'),
+(28, 'Botswana'),
+(29, 'Bouvet Island'),
+(30, 'Brazil'),
+(31, 'British Indian Ocean Territory'),
+(32, 'Brunei Darussalam'),
+(33, 'Bulgaria'),
+(34, 'Burkina Faso'),
+(35, 'Burundi'),
+(36, 'Cambodia'),
+(37, 'Cameroon'),
+(38, 'Canada'),
+(39, 'Cape Verde'),
+(40, 'Cayman Islands'),
+(41, 'Central African Republic'),
+(42, 'Chad'),
+(43, 'Chile'),
+(44, 'China'),
+(45, 'Christmas Island'),
+(46, 'Cocos (Keeling) Islands'),
+(47, 'Colombia'),
+(48, 'Comoros'),
+(49, 'Congo'),
+(50, 'Congo, the Democratic Republic of the'),
+(51, 'Cook Islands'),
+(52, 'Costa Rica'),
+(53, 'Cote d\'Ivoire'),
+(54, 'Croatia (Hrvatska)'),
+(55, 'Cuba'),
+(56, 'Cyprus'),
+(57, 'Czech Republic'),
+(58, 'Denmark'),
+(59, 'Djibouti'),
+(60, 'Dominica'),
+(61, 'Dominican Republic'),
+(62, 'East Timor'),
+(63, 'Ecuador'),
+(64, 'Egypt'),
+(65, 'El Salvador'),
+(66, 'Equatorial Guinea'),
+(67, 'Eritrea'),
+(68, 'Estonia'),
+(69, 'Ethiopia'),
+(70, 'Falkland Islands (Malvinas)'),
+(71, 'Faroe Islands'),
+(72, 'Fiji'),
+(73, 'Finland'),
+(74, 'France'),
+(75, 'France Metropolitan'),
+(76, 'French Guiana'),
+(77, 'French Polynesia'),
+(78, 'French Southern Territories'),
+(79, 'Gabon'),
+(80, 'Gambia'),
+(81, 'Georgia'),
+(82, 'Germany'),
+(83, 'Ghana'),
+(84, 'Gibraltar'),
+(85, 'Greece'),
+(86, 'Greenland'),
+(87, 'Grenada'),
+(88, 'Guadeloupe'),
+(89, 'Guam'),
+(90, 'Guatemala'),
+(91, 'Guinea'),
+(92, 'Guinea-Bissau'),
+(93, 'Guyana'),
+(94, 'Haiti'),
+(95, 'Heard and Mc Donald Islands'),
+(96, 'Holy See (Vatican City State)'),
+(97, 'Honduras'),
+(98, 'Hong Kong'),
+(99, 'Hungary'),
+(100, 'Iceland'),
+(101, 'India'),
+(102, 'Indonesia'),
+(103, 'Iran (Islamic Republic of)'),
+(104, 'Iraq'),
+(105, 'Ireland'),
+(106, 'Israel'),
+(107, 'Italy'),
+(108, 'Jamaica'),
+(109, 'Japan'),
+(110, 'Jordan'),
+(111, 'Kazakhstan'),
+(112, 'Kenya'),
+(113, 'Kiribati'),
+(114, 'Korea, Democratic People\'s Republic of'),
+(115, 'Korea, Republic of'),
+(116, 'Kuwait'),
+(117, 'Kyrgyzstan'),
+(118, 'Lao, People\'s Democratic Republic'),
+(119, 'Latvia'),
+(120, 'Lebanon'),
+(121, 'Lesotho'),
+(122, 'Liberia'),
+(123, 'Libyan Arab Jamahiriya'),
+(124, 'Liechtenstein'),
+(125, 'Lithuania'),
+(126, 'Luxembourg'),
+(127, 'Macau'),
+(128, 'Macedonia, The Former Yugoslav Republic of'),
+(129, 'Madagascar'),
+(130, 'Malawi'),
+(131, 'Malayisa'),
+(132, 'Maldives'),
+(133, 'Mali'),
+(134, 'Malta'),
+(135, 'Marshall Islands'),
+(136, 'Martinique'),
+(137, 'Mauritania'),
+(138, 'Mauritius'),
+(139, 'Mayotte'),
+(140, 'Mexico'),
+(141, 'Micronesia, Federated States of'),
+(142, 'Moldova, Republic of'),
+(143, 'Monaco'),
+(144, 'Mongolia'),
+(145, 'Montserrat'),
+(146, 'Morocco'),
+(147, 'Mozambique'),
+(148, 'Myanmar'),
+(149, 'Namibia'),
+(150, 'Nauru'),
+(151, 'Nepal'),
+(152, 'Netherlands'),
+(153, 'Netherlands Antilles'),
+(154, 'New Caledonia'),
+(155, 'New Zealand'),
+(156, 'Nicaragua'),
+(157, 'Niger'),
+(158, 'Nigeria'),
+(159, 'Niue'),
+(160, 'Norfolk Island'),
+(161, 'Northern Mariana Islands'),
+(162, 'Norway'),
+(163, 'Oman'),
+(164, 'Pakistan'),
+(165, 'Palau'),
+(166, 'Panama'),
+(167, 'Papua New Guinea'),
+(168, 'Paraguay'),
+(169, 'Peru'),
+(170, 'Philippines'),
+(171, 'Pitcairn'),
+(172, 'Poland'),
+(173, 'Portugal'),
+(174, 'Puerto Rico'),
+(175, 'Qatar'),
+(176, 'Reunion'),
+(177, 'Romania'),
+(178, 'Russian Federation'),
+(179, 'Rwanda'),
+(180, 'Saint Kitts and Nevis'),
+(181, 'Saint Lucia'),
+(182, 'Saint Vincent and the Grenadines'),
+(183, 'Samoa'),
+(184, 'San Marino'),
+(185, 'Sao Tome and Principe'),
+(186, 'Saudi Arabia'),
+(187, 'Senegal'),
+(188, 'Seychelles'),
+(189, 'Sierra Leone'),
+(190, 'Singapore'),
+(191, 'Slovakia (Slovak Republic)'),
+(192, 'Slovenia'),
+(193, 'Solomon Islands'),
+(194, 'Somalia'),
+(195, 'South Africa'),
+(196, 'South Georgia and the South Sandwich Islands'),
+(197, 'Spain'),
+(198, 'Sri Lanka'),
+(199, 'St. Helena'),
+(200, 'St. Pierre and Miquelon'),
+(201, 'Sudan'),
+(202, 'Suriname'),
+(203, 'Svalbard and Jan Mayen Islands'),
+(204, 'Swaziland'),
+(205, 'Sweden'),
+(206, 'Switzerland'),
+(207, 'Syrian Arab Republic'),
+(208, 'Taiwan, Province of China'),
+(209, 'Tajikistan'),
+(210, 'Tanzania, United Republic of'),
+(211, 'Thailand'),
+(212, 'Togo'),
+(213, 'Tokelau'),
+(214, 'Tonga'),
+(215, 'Trinidad and Tobago'),
+(216, 'Tunisia'),
+(217, 'Turkey'),
+(218, 'Turkmenistan'),
+(219, 'Turks and Caicos Islands'),
+(220, 'Tuvalu'),
+(221, 'Uganda'),
+(222, 'Ukraine'),
+(223, 'United Arab Emirates'),
+(224, 'United Kingdom'),
+(225, 'United States'),
+(226, 'United States Minor Outlying Islands'),
+(227, 'Uruguay'),
+(228, 'Uzbekistan'),
+(229, 'Vanuatu'),
+(230, 'Venezuela'),
+(231, 'Vietnam'),
+(232, 'Virgin Islands (British)'),
+(233, 'Virgin Islands (U.S.)'),
+(234, 'Wallis and Futuna Islands'),
+(235, 'Western Sahara'),
+(236, 'Yemen'),
+(237, 'Yugoslavia'),
+(238, 'Zambia'),
+(239, 'Zimbabwe');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `description` text CHARACTER SET latin1 NOT NULL,
+  `content` text CHARACTER SET latin1 NOT NULL,
+  `image_path` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `date_of_creating` date NOT NULL,
+  `autor_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `description`, `content`, `image_path`, `category_id`, `date_of_creating`, `autor_id`) VALUES
+(1, 'news 1', 'aaaaa aaaaaaaaaaaa aqqq', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'test.jpg', 1, '0000-00-00', 0),
+(2, 'title 2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesett', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'test.jpg', 1, '0000-00-00', 0),
+(23, 'bjsbcjsbjc', 'wdwkd', 'dwjdbnkwn ', '96 (3).jpg ', 6, '2018-08-02', 0),
+(24, 'news conserning iuniverse', 'The Universe is all of space and time[a] and their contents,[10] including planets,', 'The Universe is all of space and time[a] and their contents,[10] including planets, stars, galaxies, and all other forms of matter and energy. While the spatial size of the entire Universe is still unknown,[3] it is possible to measure the observable universe.\r\n\r\nT ', '96 (3).jpg ', 7, '2018-08-02', 0),
+(25, 'There are many', 'There are many variations of passages of Lorem Ipsum available', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration ', '5.jpg ', 1, '2018-08-02', 0),
+(26, 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration ', '5.jpg ', 4, '2018-08-02', 0),
+(27, 'Does ugliness have aesthetic value?', 'Hence, beautiful wallpapers can also come in many different', 'Can the ugliness have aesthetic value? And above all, how to define beauty? What aesthetic pleasure is he different from any other pleasure? What is the nature of aesthetic pleasure? Is a beautiful property of things? All these questions have no universally accepted response. Hence, beautiful wallpapers can also come in many different ', '13.jpg ', 1, '2018-08-02', 0),
+(29, 'In pto demonstrate t', 'In publishing and graphic design, lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation, such as web pages, typography, and graphical layout. It is a form of \"greeking\".', 'In publishing and graphic design, lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation, such as web pages, typography, and graphical layout. It is a form of \"greeking\".\r\n\r\nEven though using \"lorem ipsum\" often arouses curiosity due to its resemblance to classical Latin, it is not intended to have meaning. Where text is visible in a document, people tend to focus on the textual content rather than upon overall presentation, so publishers use lorem ipsum when displaying a typeface or design in order to direct the focus to presentation. \"Lorem ipsum\" also approximates a typical distribution of letters in English.In publishing and graphic design, lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation, such as web pages, typography, and graphical layout. It is a form of \"greeking\".\r\n\r\nEven though using \"lorem ipsum\" often arouses curiosity due to its resemblance to classical Latin, it is not intended to have meaning. Where text is visible in a document, people tend to focus on the textual content rather than upon overall presentation, so publishers use lorem ipsum when displaying a typeface or design in order to direct the focus to presentation. \"Lorem ipsum\" also approximates a typical distribution of letters in English.In publishing and graphic design, lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation, such as web pages, typography, and graphical layout. It is a form of \"greeking\".\r\n\r\nEven though using \"lorem ipsum\" often arouses curiosity due to its resemblance to classical Latin, it is not intended to have meaning. Where text is visible in a document, people tend to focus on the textual content rather than upon overall presentation, so publishers use lorem ipsum when displaying a typeface or design in order to direct the focus to presentation. \"Lorem ipsum\" also approximates a typical distribution of letters in English. ', '11.jpg ', 6, '2018-08-02', 0),
+(30, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years o', 'to demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate t\r\nContrary to', 'to demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate tto demonstrate t ', '10.jpg ', 3, '2018-08-02', 0),
+(31, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years o', 'wdnjndwjk', 'wjdiqwkd ', '3.jpg ', 1, '2018-08-02', 0),
+(32, 'there are a lot of environmental issues', 'Our Mother Earth is currently facing lot of environmental concerns. The environmental problems like global warming, acid rain, air pollution, urban', 'Our Mother Earth is currently facing lot of environmental concerns. The environmental problems like global warming, acid rain, air pollution, urban sprawl, waste disposal, ozone layer depletion, water pollution, climate change and many more affect every human, animal and nation on this planet. Over the last few decades, the exploitation of our planet and degradation of our environment have  gone up at an alarming rate. As our actions have been not in favor of protecting this planet, we have seen natural disasters striking us more often in the form of flash floods, tsunamis and cyclones. ', '1.jpg ', 4, '2018-08-02', 0),
+(47, 'wqjdnjqwnd', 'wndkwndnwdn', 'wdbjwbdjw ', '1533226833.jpg ', 1, '2018-08-02', 0),
+(48, 'nuture', 'content from clients can often be a frustrating process), and is used in place o', 'content from clients can often be a frustrating process), and is used in place of meaningful content during the design phase.With roots in classical Latin literature, lorem ipsum has ', '1533226940.jpg ', 6, '2018-08-02', 0),
+(49, 'again test', 'about something', 'just testing ', '1533228447.jpg ', 1, '2018-08-02', 0),
+(51, 'Contrary to popular belief, L', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years', 'vContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years ', '1533228912.jpg ', 6, '2018-08-02', 0),
+(52, 'jnwjnjnwdfjnwjd', 'djndnkq', 'dnqjkdnqndk ', '1533230014.jpg ', 4, '2018-08-02', 0),
+(53, 'The Minions are small, yellow henchmen', 'The Minions are small, yellow henchmen', 'The Minions are small, yellow henchmen ', '1533288851.jpg ', 1, '2018-08-03', 0),
+(54, 'nwkwnk', 'nkwnfknw', 'kwnkwn ', '1533292357.jpg ', 4, '2018-08-03', 0),
+(55, 'efnkefenf', 'ejkfenknfkf', 'ebjbefkefnk ', '1533302618.jpg ', 4, '2018-08-03', 0),
+(56, 'kjn3rk3nrk3nrkn3rk3nkr', '3fk3nr3nrk3nrk', '3nk3nkn3krn3k ', '1533308473.jpg ', 4, '2018-08-03', 0),
+(57, 'hbhjb', 'bj', 'bjbj ', '1533384524.jpg ', 1, '2018-08-04', 0),
+(58, 'Õ¸Õ°Õ«Õ°ÕµÕ¸Õ«Ö†Õ°', 'Õ¸Ö†Õ¶Õ¯Õ¶Õ¸Ö†', 'Õ¸Õ¶Ö†Õ¯Õ¸Õ¶Ö† ', '1533385236.jpg ', 6, '2018-08-04', 0),
+(59, 'nbdjknwkdnkw', 'Õ¶Õ¸ÕµÕ¤Õ¶Õ¸Õ¯Õ¤Õ¶Õ¸Õ¯Õ¤Õ¶Õ¯Õ¸Õ¶Õ¤', 'Ñ‚Ð¾Ñ†Ñ‚Ð²Ð»Ñ†Ð²Ð» ', '1533386097.jpg ', 3, '2018-08-04', 0),
+(60, 'wdnkwndk', 'djqbdjqbdj', 'wnkdnwkln ', '1533386524.jpg ', 6, '2018-08-04', 0),
+(61, 'djwnfkwnfk', 'wnfklnwflwnfl', 'wldmwlfmwl ', '1533386744.jpg ', 5, '2018-08-04', 0),
+(62, 'Õ¸Õ¶Õ¯Õ¤Õ¸Õ¯Õ¤', 'Õ¸ Õ¤Õ¢Õ¸ÕµÕ¢Õ¤Õµ', 'Õ¸Õ¤Õ¶Õ¯Õ¶Õ¸Õ¤ ', '1533387511.jpg ', 4, '2018-08-04', 0),
+(63, 'Õ¶Õ¯Õ¸Õ¶Ö†Õ¯Õ¸Ö†', 'Õ¸ÕµÕ¯Õ¢Ö†Õ¯', 'Õ¸Õ¶Õ¤Õ¯Õ¶Õ¸Ö† ', '1533387600.jpg ', 1, '2018-08-04', 0),
+(64, 'Õ¶Õ¯Õ¤Õ¶Õ¸Õ¯Õ¤Ö†Õ¶Õ¯', 'Õ¶Õ¸Õ¯Õ¶Ö†Õ¯Õ¸Õ¶', 'Õ¸Õ¶Õ¤Õ¯Õ¸Õ¶Õ¤Õ¯ ', '1533387816.jpg ', 5, '2018-08-04', 0),
+(65, 'nejfnkefn', 'bjwjdf', 'w dkwnfdk ', '1533387863.jpg ', 6, '2018-08-04', 0),
+(66, 'Ñ‚Ð¾Ñ†', 'Ñ†Ð²Ð¾Ð»Ñ†Ð¸Ð²Ð»', 'Ñ†Ñ‚Ð²Ð°Ð»Ñ†Ð° ', '1533387880.jpg ', 1, '2018-08-04', 0),
+(67, 'Ð¸Ñ†Ð²Ð¾Ð¸Ñ†Ð²Ð¾Ð¸Ð¾', 'wbdjwd', 'bdjwbdjwbdjbwj ', '1533387955.jpg ', 6, '2018-08-04', 0),
+(69, 'Õ¢ÕµÕ¸Õ¤Õ¢Õ¸Õ¤ÕµÕ¢Õ¤Õ¸Õµ', 'Õ¤Õ¸Õ¶Õ¯Õ¤Õ¶Õ¯', 'Õ¤Õ¸Õ¯Õ¤Õ¶Õ¯ ', '1533388215.jpg ', 1, '2018-08-04', 0),
+(70, 'fekjnfkefnk', 'dfjefjefbjef', 'ejfebfbjbjbjbj ', '1533398401.jpg ', 4, '2018-08-04', 0),
+(71, 'ecjecje', 'hkcrhkc', 'chjehcjehcj ', '1533453359.jpg ', 4, '2018-08-05', 0),
+(72, 'dwkdkwndk', 'nfkwnf', 'wnknwkdfn ', '1533537201.jpg ', 1, '2018-08-06', 0),
+(73, 'wfjwfj', 'fjfjwfbw', 'wjfwnjfkn ', '1533545760.jpg ', 1, '2018-08-06', 0),
+(74, 'qsbjqbdsj', 'wdbjwdjwb', 'wdkwbdkw ', '1533547802.jpg ', 1, '2018-08-06', 0),
+(75, 'vjhjbj', 'bvjjbj', 'bjbjj ', '1533556416.jpg ', 4, '2018-08-06', 0),
+(76, 'vjhjbj', 'bvjjbj', 'bjbjj ', '1533556417.jpg ', 4, '2018-08-06', 0),
+(77, 'qdjdqd', 'dqbdj', 'dhjbqbdq ', '1533559864.jpg ', 3, '2018-08-06', 0),
+(78, 'wdfwkfnnfkfnk', 'wnkfwnfk', 'wknkfnk ', '1533632470.jpg ', 4, '2018-08-07', 0),
+(79, 'nqjkdnkndkqnde', 'qdknqdknqdk', 'qnkdndknqwkd ', '1533640046.jpg ', 2, '2018-08-07', 0),
+(81, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years ', 'wnkwnfkwnfkief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years o', 'kfefkeflmwief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years oief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years oief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years o ', '1533650846.jpg ', 5, '2018-08-07', 0),
+(82, 'dfjwnfjwnfjw', 'wdbjwdbj', 'wdjwndknwd ', '1533707087.jpg ', 5, '2018-08-08', 0),
+(83, 'enkfnerkfkrfn', 'nnjknkmnkn', 'enfknkrngkr ', '1533713478.jpg ', 1, '2018-08-08', 0),
+(84, 'bdjwbdjbwdjwd', 'dqnknqdknq', 'ndkqndkqndk ', '1533717102.jpg ', 4, '2018-08-08', 0),
+(85, 'dkqwndqkdk', 'qdnqnd,qdn,', 'qdnqndqd, ', '1533743475.jpg ', 5, '2018-08-08', 0),
+(86, ' nknk', 'mlmlmlm', 'knknk ', '1533903869.jpg ', 4, '2018-08-10', 0),
+(89, 'test for autor_id', 'axlamxlamlmaldnkqndkdnkqnd', 'qskqnskqnskd ', '1534316282.jpg ', 5, '2018-08-15', 88),
+(91, 'nwknfkwnf', 'fmlqmflqm', 'fkqnkfn ', '1534319211.jpg ', 4, '2018-08-15', 88),
+(92, 'Sport article', 'ndkwnknwf kdmlqmdl kqndkd', 'dnqkndkqnd kqdnkqndkq mkn dlkqmldmqldmql lqmdlqmdld ', '1534333118.jpg ', 2, '2018-08-15', 120),
+(93, 'jvbjbj', 'vhvh', '<p>bkbkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk<i>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</i>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p> ', '1534336329.jpg ', 4, '2018-08-15', 88),
+(94, 'mdlqdmlmdlq', 'qmdlmqdml', '<p>qdknqdln qdnl<strong>mqndl qkdnk</strong>qdn<s>lqdn nlqm</s>;l,q;,; n nfwk<em>nknnnkfn mf</em>nkwnfknwfk</p>\r\n ', '1534350197.jpg ', 5, '2018-08-15', 88),
+(95, 'wdnkdn', 'dwnkdnk', '<p>dnkn<s>dwknwd wjn</s>dkndw</p>\r\n ', '1534350560.jpg ', 4, '2018-08-15', 88),
+(97, 'd mwndq,ndf,q', 'wd qnk,nfkqnf qmf,nqf', '<p>wdqnk<span style=\"color:#1abc9c\">dnnd wndkwqnkdnfn</span>nkqfnkqfn&nbsp;</p>\r\n ', '1534352692.jpg ', 6, '2018-08-15', 88),
+(98, 'dmlwqqdmlmdlq', 'ddqdknknk', '<p>mdlmn</p>\r\n ', '1534417641.jpg ', 7, '2018-08-16', 88);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `registr_s`
+--
+
+CREATE TABLE `registr_s` (
+  `id` int(11) NOT NULL,
+  `f_name` varchar(50) NOT NULL,
+  `l_name` varchar(50) NOT NULL,
+  `email` varchar(320) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `profile_path` varchar(255) NOT NULL,
+  `country_id` int(11) NOT NULL,
+  `registr_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `registr_s`
+--
+
+INSERT INTO `registr_s` (`id`, `f_name`, `l_name`, `email`, `password`, `profile_path`, `country_id`, `registr_date`) VALUES
+(1, 'nwdnwk', 'ndkwndk', 'wd nkwndk', 'dwnkwnd', '', 1, '2018-08-06'),
+(3, 'bjbjb', 'njnjn', 'bjbjj', 'bjbjbj', '', 1, '2018-08-06'),
+(4, 'njefje', 'fjwfjw', 'njnewfjk', 'nvkenv', '', 1, '0000-00-00'),
+(5, 'nkfjkw', 'jwndkw', 'nkfnwkf', 'whfiiw', '', 1, '0000-00-00'),
+(6, 'nkfjkw', 'jwndkw', 'nkfnwkf', 'whfiiw', '', 1, '0000-00-00'),
+(7, 'nkfjkw', 'jwndkw', 'nkfnwkf', 'whfiiw', '', 1, '0000-00-00'),
+(8, 'njknnd', 'qdkqmndknd', 'dnjqndkq', 'dnqkndqn', '', 1, '2018-08-06'),
+(9, 'dnkndkwndk', 'dmkwmdknwkdn', 'dnkwndknwk', 'dnkwndnwd', '', 1, '2018-08-06'),
+(10, 'Tsovinar', 'Greigoryan', 'tsovinar.nemesida.grigoryan@gmail.com', '4444', '', 1, '2018-08-06'),
+(30, 'Tsovinar', 'enfknkef', 'wnfkwnfk', '1234', '', 1, '2018-08-06'),
+(63, 'Tsov', 'Grigoryan', '1000@mail.ru', 'e3cbba8883fe746c6e35783c9404b4bc0c7ee9eb', '1534008533', 5, '2018-08-11'),
+(64, 'Tsovinar', 'ndkwndk', '1001@mail.ru', 'dd01903921ea24941c26a48f2cec24e0bb0e8cc7', '1534008673', 3, '2018-08-11'),
+(65, 'wkdnkwndk', ' dknwdkll', '52@mail.ru', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2', '1534008738', 4, '2018-08-11'),
+(66, 'qkdldml', 'wfmlwmflwmfl', 'mwlmfl@mail.ru', '51eac6b471a284d3341d8c0c63d0f1a286262a18', '1534009584', 4, '2018-08-11'),
+(67, 'wjfojwfjowjf', 'dnkqmndlqdl', 'wdnkwndkbj@mail.ru', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '1534009624', 1, '2018-08-11'),
+(68, 'Tsov', 'Grig', '2018@mail.ru', '66efd9eefecf45dd64eff8e5cb2d13e005041925', '1534009807', 3, '2018-08-11'),
+(69, 'sknkdnkd', 'wdmlmdwlwd', 'dknwk@mail.ru', '23b23be9da2519c88f11c084310bcc0bf14417f8', '1534010011', 2, '2018-08-11'),
+(70, 'ekqwnknd', 'qkndkqd', 'wnknfdkn@mail.ru', 'fc7a734dba518f032608dfeb04f4eeb79f025aa7', '1534010128', 1, '2018-08-11'),
+(71, 'nkknknk', 'mkmkmk', '456@mail.ru', '51eac6b471a284d3341d8c0c63d0f1a286262a18', '1534010586', 2, '2018-08-11'),
+(72, 'nkdnwknk', 'wmdkmkf', 'wlkmfl@mail.ru', '98fbc42faedc02492397cb5962ea3a3ffc0a9243', '', 3, '2018-08-11'),
+(73, 'kknknk', 'wkwnkwn', '111@mail.ru', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2', '', 2, '2018-08-11'),
+(74, 'dkwdknwdk', 'mdlwmlw', '444@mail.ru', '9a3e61b6bcc8abec08f195526c3132d5a4a98cc0', '1534011915', 4, '2018-08-11'),
+(75, 'kndkndkd wjdjwnbdj', 'nknkfwdnksndk', '852@mail.ru', '2dcc3820e64b3d1a7866b22935c695fd6aa3980a', 'Array', 3, '2018-08-11'),
+(76, 'ksjnfks', 'sfsf', '333@mail.ru', '43814346e21444aaf4f70841bf7ed5ae93f55a9d', '', 5, '2018-08-11'),
+(77, 'nkdnkwdn', 'dlkmnald', 'dmldml@mail.ru', '98fbc42faedc02492397cb5962ea3a3ffc0a9243', '1534012762', 4, '2018-08-11'),
+(78, 'kfnwfk', 'dnkwndk', '784@mail.ru', 'aa5076f800ef52b2ed0f0b8d88bfc68f7fd6a314', '1534013116', 2, '2018-08-11'),
+(79, 'adsfasdfasdf', 'adfsadfsafds', 'tsdasdfovinar.nemesida.grigoryan@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '1534015441.jpg', 1, '2018-08-11'),
+(80, 'nfnefnekfkk', 'wndjwndjwd', 'ggg@mail.ru', '07dcd371560bc43c48f56a2f55739ac66741d59d', '1534015973.jpg', 2, '2018-08-11'),
+(81, 'ndkndk', 'slknl', 'tsfkehnfk@mail.ru', '444', '444', 3, '0000-00-00'),
+(87, 'djwdjw', 'qkdnk', '448@mail.ru', '9a3e61b6bcc8abec08f195526c3132d5a4a98cc0', '1534095225.jpg', 17, '2018-08-12'),
+(88, 'Tsov', 'Grig', 'Tsov@mail.ru', 'ba4413c4f9fab80579590bc27e672f37519f9a9d', '1534095510.jpg', 11, '2018-08-12'),
+(89, 'shine', 'Art', 'shine@mail.ru', '3da90bd3db535c44d21f0d388768d8fa6ac286bc', '1534160680.jpg', 11, '2018-08-13'),
+(102, 'nknkk', 'ndkwndk', 'ccc@mail.ru', 'f36b4825e5db2cf7dd2d2593b3f5c24c0311d8b2', '1534321756.jpg', 14, '2018-08-15'),
+(103, 'vvv', 'vvv', 'vvv@mail.ru', 'dbe6cae2f52b55095b513c15321b934146828d76', '1534322095.jpg', 176, '2018-08-15'),
+(104, 'vvv', 'vvv', 'vvv@mail.ru', 'dbe6cae2f52b55095b513c15321b934146828d76', '1534322287.jpg', 176, '2018-08-15'),
+(105, 'dnwkdnkw', 'dwkndk', 'bjbndwj@mail.ru', '43814346e21444aaf4f70841bf7ed5ae93f55a9d', '1534322344.jpg', 1, '2018-08-15'),
+(106, 'anxkanxk', 'x a xkaxnk', 'ndkndk@mail.ru', '1c6637a8f2e1f75e06ff9984894d6bd16a3a36a9', '1534322800.jpg', 17, '2018-08-15'),
+(107, 'wdnkwdnk', 'd wdnk', 'dwidhni@mail.ru', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '1534322954.jpg', 4, '2018-08-15'),
+(108, 'jjbnj', 'jnkn', 'jnjn@mail.ru', '2dcc3820e64b3d1a7866b22935c695fd6aa3980a', '1534323349.jpg', 18, '2018-08-15'),
+(109, 'jjbnj', 'jnkn', 'jnjn@mail.ruh', '2dcc3820e64b3d1a7866b22935c695fd6aa3980a', '1534323436.jpg', 1, '2018-08-15'),
+(110, 'jjbnj', 'jnkn', 'jnjn@mabbil.ruh', '2dcc3820e64b3d1a7866b22935c695fd6aa3980a', '1534323486.jpg', 1, '2018-08-15'),
+(111, 'skncknk', 'ankandk', 'nskcnskc@mail.ru', '9a3e61b6bcc8abec08f195526c3132d5a4a98cc0', '1534323550.jpg', 146, '2018-08-15'),
+(112, 'nkandkndk', 'nskqnsqksn', 'qlsqmsl@mail.ru', '9a3e61b6bcc8abec08f195526c3132d5a4a98cc0', '1534323615.jpg', 43, '2018-08-15'),
+(113, 'qskjqkj', 'sdlqdl', 'djqdjo@mail.ru', '98fbc42faedc02492397cb5962ea3a3ffc0a9243', '1534323991.jpg', 14, '2018-08-15'),
+(114, 'nknknk', 'nknknk', 'wnfkwnfkjkn@mail.ru', '51eac6b471a284d3341d8c0c63d0f1a286262a18', '1534324142.jpg', 114, '2018-08-15'),
+(115, 'nknknsc', 'slncl', 'lwdl@mail.ru', '9a3e61b6bcc8abec08f195526c3132d5a4a98cc0', '1534324677.jpg', 1, '2018-08-15'),
+(116, 'ndkqdnkdn', 'dnkqdn', 'wdnkwndkdn@mail.ru', '23b23be9da2519c88f11c084310bcc0bf14417f8', '1534324768.jpg', 19, '2018-08-15'),
+(117, 'hasmik', 'grigoryan', 'hasmik@mail.ru', '6a19b2fbea159c17f41e3fbc527cb380bc88513c', '1534325106.jpg', 98, '2018-08-15'),
+(119, 'registr', 'registr', 'registr@mail.ru', '2b0b2646042e8873f47a1e8d67eec11200c12ab1', '1534328762.jpg', 18, '2018-08-15'),
+(120, 'art', 'art', 'art@mail.ru', '4f468a6824d620bf0f58640c0bc423bcb35dc48f', '1534333042.jpg', 11, '2018-08-15'),
+(121, 'someone', 'Grigoryan', 'someone@mail.ru', '51eac6b471a284d3341d8c0c63d0f1a286262a18', '1534419373.jpg', 225, '2018-08-16'),
+(122, 'Test', 'test', 'nkckcnk@mail.ru', 'fc1200c7a7aa52109d762a9f005b149abef01479', '1534419479.jpg', 225, '2018-08-16'),
+(123, 'wfnwkfnwkf', 'wf wmfwmf', 'wd@mail.ru', 'fc1200c7a7aa52109d762a9f005b149abef01479', '1534422392.jpg', 235, '2018-08-16'),
+(124, 'nknknknk', 'mknknknknknk', 'nknknqkcn@mail.ru', '9a3e61b6bcc8abec08f195526c3132d5a4a98cc0', '1534422632.jpg', 18, '2018-08-16'),
+(125, 'wdnwkdnkwnd', 'dnwkdnw', 'wdnkwndkcnkwnk@mail.ru', '9a3e61b6bcc8abec08f195526c3132d5a4a98cc0', '1534422662.jpg', 218, '2018-08-16'),
+(126, 'bjbjbj', ' bjbbjbj', '1112@mail.ru', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2', '1534424261.jpg', 94, '2018-08-16'),
+(127, 'test', 'test', 'nkwn@mail.ru', 'cfa1150f1787186742a9a884b73a43d8cf219f9b', '1534426807.jpg', 214, '2018-08-16');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `countries`
+--
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category_id` (`category_id`);
+
+--
+-- Indexes for table `registr_s`
+--
+ALTER TABLE `registr_s`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_country_id_registr_s` (`country_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `countries`
+--
+ALTER TABLE `countries`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+
+--
+-- AUTO_INCREMENT for table `registr_s`
+--
+ALTER TABLE `registr_s`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `news`
+--
+ALTER TABLE `news`
+  ADD CONSTRAINT `fk_category_id_news` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
+
+--
+-- Constraints for table `registr_s`
+--
+ALTER TABLE `registr_s`
+  ADD CONSTRAINT `fk_country_id_registr_s` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

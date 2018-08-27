@@ -1,6 +1,6 @@
 <?php
 //include_once "components/db_functions.php";
-include_once "components/db.php";
+//include_once "components/db.php";
 ?>
 
 <?php

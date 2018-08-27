@@ -2,7 +2,7 @@
 error_reporting(E_WARNING);
 include_once "cookies_sessions/session_on.php";
 include_once 'components/db_functions.php';
-//include_once "components/db.php";
+include_once "components/db.php";
 
 if(isset ($_SESSION['id'])) {
     $user_id = $_SESSION['id']; 
@@ -12,21 +12,21 @@ if(isset ($_SESSION['id'])) {
 }
 
 
-$stmt = $conn->query("select * from registr_s where id = '$user_id'"  );
-$data = $stmt->fetch(PDO::FETCH_ASSOC);
+//$stmt = $conn->query("select * from registr_s where id = '$user_id'"  );
+//$data = $stmt->fetch(PDO::FETCH_ASSOC);
 //var_dump($data );
-//$db = new Database('news_app', 'root', '', 'homework.local');
+$db = new Database('news_app', 'root', '', 'homework.local');
 //echo "<pre>";print_r($db);die;
 
-//$table = 'registr_s';
-//$where = '';
-//$limit = '';
-//$order = '';
-//$where_mode = '';
-//$select_fields = 'id';
+$table = 'registr_s';
+$where = '';
+$limit = '';
+$order = '';
+$where_mode = '';
+$select_fields = '*';
 
-//$stmt = $db -> select($table, $where, $limit, $order, $where_mode, $select_fields) -> result();
-
+$data = $db -> select($table, $where = array('id' => $user_id), $limit, $order, $where_mode, $select_fields) -> result();
+//print_r($data);die;
 ?>
 
 <!DOCTYPE html>

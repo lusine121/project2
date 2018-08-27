@@ -1,16 +1,15 @@
 
 <?php
 //require_once 'components/db_functions.php';
-
-include_once 'layouts/header.php';
+//include_once "components/db.php";
 ?>
-
 
 <?php
+include_once 'layouts/header.php';
 include_once 'layouts/left-sidebar.php';
 ?>
-<div class="col-md-9 right ">
 
+<div class="col-md-9 right ">
     <div class="col-md-8">
         <h3 class="about_info">Shine Production </h3>
         <h4>Telephone Number: 094737504 </h4>
@@ -26,6 +25,7 @@ include_once 'layouts/left-sidebar.php';
 
 </div>
 </div>
+
 <?php  
 include_once 'layouts/footer.php'; 
 ?>

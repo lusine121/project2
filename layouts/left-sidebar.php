@@ -1,7 +1,7 @@
 <?php
 //include_once 'components/db_functions.php';
-$stmt = $conn->query("SELECT * FROM categories");
-$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//$stmt = $conn->query("SELECT * FROM categories");
+//$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 include_once "components/db.php";
 
 $db = new Database('news_app', 'root', '', 'homework.local');
@@ -13,7 +13,7 @@ $order = '';
 $where_mode = '';
 $select_fields = '*';
 
-$stmt = $db -> select($table, $where, $limit, $order, $where_mode, $select_fields) -> result();
+$data = $db -> select($table, $where, $limit, $order, $where_mode, $select_fields) -> result();
 
 ?>
 <div class="container">

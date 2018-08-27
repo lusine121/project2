@@ -1,13 +1,16 @@
 <?php
 //include_once "components/db_functions.php";
+include_once "components/db.php";
+?>
 
+<?php
 include_once "layouts/header.php";
 include_once "layouts/left-sidebar.php";
 ?>
+
     <div class="col-md-9 right">
         <div class="col-md-8 ">
             <h3 class="about_info">Information about us </h3>
-
             <h6>Where can I get some?
                 There are many variations of passages of Lorem Ipsum available, but the majority have suffered
                 alteration in some form, by injected humour, or randomised words which don't look even slightly

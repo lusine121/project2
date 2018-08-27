@@ -14,7 +14,7 @@ $where_mode = '';
 $select_fields = '*';
 
 $data = $db -> select($table, $where, $limit, $order, $where_mode, $select_fields) -> result();
-
+//echo "<pre>";print_r($data);die;
 ?>
 <div class="container">
     <div class="row">
